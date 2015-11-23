@@ -14,9 +14,10 @@ VO类，然后交由Jackson去转化，但是这个过程中，反复编写大�
 【4】实现思路：
 a、输入的类属性，形式是{"person.children", "person.father"}。
 b、将输入的类属性转化为如下数据结构（这里使用树的结构）：
-      person
-       /  \
-children  father
+       /--> children
+person
+       \__ father
+;
 c、然后使用层序遍历，逐步递归到路径指定的深度，在递归过程中将属性归类，按类型去把通过getter
 方法获取的值转化字符串。
 
